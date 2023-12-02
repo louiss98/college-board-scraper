@@ -1,11 +1,12 @@
 class CollegeSearchResult:
-    def __init__(self, name, location, characteristics, graduation_rate, apy, sat):
+    def __init__(self, name, location, characteristics, graduation_rate, apy, sat, href):
         self.name = name
         self.location = location
         self.characteristics  = characteristics 
         self.graduation_rate = graduation_rate
         self.apy = apy
         self.sat = sat
+        self.href = href
 
     def __str__(self):
         return f"Name: {self.name}\nLocation: {self.location}\nCharacteristics: {self.characteristics}\nGraduation Rate: {self.graduation_rate}\nAPY: {self.apy}\nSAT: {self.sat}"
