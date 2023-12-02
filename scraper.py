@@ -10,12 +10,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from college import CollegeSearchResult
 
 class Filters(Enum):
-    HighestGraduationRate = 'HighestGraduationRate'
-    SATascending = 'SATascending'
-    SATdescending = 'SATdescending'
-    Alphabetical = 'Alphabetical'
-    ReachMathSafety = 'ReachMathSafety'
-    Default = 'Default'
+    HighestGraduationRate = 'sortBy=gradRate'
+    SATascending = 'sortBy=satAsc'
+    SATdescending = 'sortBy=satDes'
+    Alphabetical = 'sortBy=name'
+    ReachMathSafety = 'sortBy=rms'
+    Default = 'sortBy=default'
 
 # Configure the Selenium Browser
 driver_path = r"C:\Users\12035\edgedriver_win32\msedgedriver.exe"
@@ -24,11 +24,11 @@ options = EdgeOptions()
 driver = webdriver.Edge(service=service, options=options)
 
 # Programmatically set the filter
-filter = Filters.SATascending.value
+filter = Filters.HighestGraduationRate.value
 
 # URL is the scrapers entry point into the domain. The url in question links to a search result page that displays colleges indexed by college board.
-entryURL = "https://bigfuture.collegeboard.org/college-search/filters"
-modifiedURL = f"{entryURL}?filter={filter}"
+entryURL = "https://bigfuture.collegeboard.org/college-search/filters?"
+modifiedURL = f"{entryURL}{filter}"
 driver.get(modifiedURL)
 
 # Wait for the element to be visible the timeout will be 10s, if 10s passes without the element terminate.
@@ -96,5 +96,9 @@ for container in containers:
         sat = sat,
         href= href
     )
-    
+
     searchResults.append(searchResult)
+    
+print(searchResults[0])
+
+time.sleep(10)
