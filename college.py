@@ -1,3 +1,4 @@
+from enum import Enum
 class CollegeSearchResult:
     def __init__(self, name, location, characteristics, graduation_rate, apy, sat, href):
         self.name = name
@@ -26,3 +27,11 @@ class CollegeProfile:
 
     def __str__(self):
         return f"Name: {self.name}\nLocation: {self.location}\nDescription: {self.description}"
+
+class Filters(Enum):
+    HighestGraduationRate = 'sortBy=gradRate'
+    SATascending = 'sortBy=satAsc'
+    SATdescending = 'sortBy=satDes'
+    Alphabetical = 'sortBy=name'
+    ReachMathSafety = 'sortBy=rms'
+    Default = 'sortBy=default'
