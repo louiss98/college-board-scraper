@@ -1,0 +1,1 @@
+The College Board Scraper is a Python-based web scraper designed to gather information on tuition prices and other relevant college data from the College Board website. This tool is useful for students, parents, and advisors who wish to compare college costs and other important information efficiently.
